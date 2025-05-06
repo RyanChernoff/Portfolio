@@ -1,10 +1,9 @@
 :root {
     --green: #C7DCCB;
     --olive: #303D2B;
-    --black: #040403;
 }
 body {
-    color: var(--black);
+    color: var(--olive);
         background-color: var(--green);
     font-family: Helvetica, Arial, sans-serif;
     display: flex;
