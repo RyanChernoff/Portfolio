@@ -1,15 +1,31 @@
-body {
-    color: forestgreen;
-    text-align: center;
-    font-family: Helvetica, Arial, sans-serif;
+:root {
+    --green: #C7DCCB;
+    --olive: #303D2B;
+    --black: #040403;
 }
-
+body {
+    color: var(--black);
+        background-color: var(--green);
+    font-family: Helvetica, Arial, sans-serif;
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+}
 h1,
 h2,
 h3 {
     font-weight: bold;
 }
+h1 {
+    padding-top: 1em;
+    font-size: 2.5em;
+}
 
+hr {
+    width: 700px;
+    margin-top: -10px;
+    border: 1px dashed var(--olive);
+}
 p {
-    text-align: left;
+    width: 600px;
 }
