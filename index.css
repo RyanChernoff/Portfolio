@@ -1,0 +1,15 @@
+body {
+    color: forestgreen;
+    text-align: center;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+}
+
+p {
+    text-align: left;
+}
