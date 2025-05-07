@@ -24,9 +24,21 @@
         that can later be displayed as part of the UI. Although there are much better text based game engines out there, this
         project ultimately taught me a lot about file IO and makes for a one of a kind storytelling experience.
     </p>
-    <h3>NEAT Neural Network</h3>
+    <h3>N.E.A.T. Neural Network</h3>
     <p>
-        Lorum impsum
+        &emsp;&emsp;My exploration of Artificial Intelligence led me to explore different evolutionary algorithms for training
+        neural networks. After reading Stanley and Miikkulainen's paper on
+        <a href="https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf" target="_blank">Evolving Neural Networks through
+            Augmenting Topologies</a>
+        and having just learnt C, I decided to implement the algorithm. Neural networks were represented using linked lists of
+        genes that specified the types of connections that the network had. These genes could then be efficiently combined and
+        mutated just as in the paper. The algorithm can then create generations of networks and selectively combine the most fit
+        ones until the threshold for success is reached. In order to prevent networks with different successful approaches from
+        interfering with each other, when two networks are too different from each other, they are classified is different
+        species and can't reproduce. This gives more complex topologies time to adapt before they are deemed unfit. This allowed
+        for efficient topological innovation and created multiple successful networks capable of solving complex problems (such
+        as XOR computation and weight balancing) with high accuracy. In implementing this algorithm, I learned a lot
+        about neural networks and the importance behind efficient topology.
     </p>
     <h3>Singular Value Decomposition Calculator</h3>
     <p>
