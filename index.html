@@ -76,7 +76,14 @@
     </p>
     <h3>Tiny Shell</h3>
     <p>
-        Lorum impsum
+        &emsp;&emsp;Learning about how multi-process applications are managed, I created a tiny shell. The shell was capable of
+        running both foreground and background processes by utilizing fork and exec to spawn a new child. I also developed an
+        understanding of signals as the SIGCHLD handler was overridden so that the shell could reap all terminated child
+        processes. It could also handle converting background jobs to foreground jobs and vice versa as well as forwarding
+        SIGINT and SIGTSTP signals to the current foreground process. The shell also included syntax for redirecting the input
+        and output descriptors to specified files. Although it doesn't quite compare in utility with unix's actual shell,
+        working on this project taught me a lot about handling concurrency issues, managing multi-process applications, and
+        dealing with sending and receiving signals.
     </p>
     <h3>HTTP Proxy</h3>
     <p>
