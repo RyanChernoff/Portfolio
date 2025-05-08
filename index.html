@@ -53,11 +53,26 @@
     </p>
     <h3>Virtual Cache Simulator</h3>
     <p>
-        Lorum impsum
+        &emsp;&emsp;As part of my study of physical computer systems I learned about the various caches integral in
+        ensuring processes run in a reasonable number of cycles. With my knowledge, I implemented a virtual cache that could be
+        configured to emulate the functionality of any sized cache. The virtual cache could handle both load and save events at
+        any location in memory. It would also keep track of the number of cache misses, hits, and evictions that occured. The
+        variation of the cache I made utilized dirty bits to mark cache blocks that had been written to so that their value
+        could be updated in memory upon eviction. It also kept track of the number of dirty bits that had been evicted and the
+        number still in the cache. Implementing this simulator allowed me to gain a better understanding of how caches work
+        and how important it is to utilize locality to avoid costly cache misses.
     </p>
     <h3>Dynamic Memory Allocator</h3>
     <p>
-        Lorum impsum
+        &emsp;&emsp;While learning how processes manage memory, I implement C's malloc, calloc, realloc, and free functions to
+        better understand how the heap is managed. My implementation used segregated free lists of varying block sizes to ensure
+        good throughput when finding free memory to allocate. It also used best fit (finding the smallest possible block) to
+        ensure good utilization of the heap. The design of the blocks took advantage of 0-length arrays in order to have
+        variable block sizes. Each block was a union of a free block type and an allocated block type where free blocks held
+        important information about its location in the free list (such as the address of the next block and the block size) and
+        allocated blocks only held size information. When a block is freed it gets combined with any surrounding free blocks and
+        added to the appropriate free list. Although my implementations are much simpler than their C library counterparts, I
+        learned a lot about how allocated memory is managed and how the heap is kept at an incredibly efficient size.
     </p>
     <h3>Tiny Shell</h3>
     <p>
