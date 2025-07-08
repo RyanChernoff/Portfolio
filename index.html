@@ -24,6 +24,17 @@
     </p>
     <h2>Projects</h2>
     <hr>
+    <h3>Tiny Secure Shell Client</h3>
+    <p>
+        &emsp;&emsp;In an attempt to learn Rust, I decided to develop a minimal implementation of an SSH client. Using the RFC
+        documentation for SSH 2.0 I first developed the transport layer by implementing key exchange via ECDH, host key validation 
+        via RSA, encryption and decryption via AES in counter mode, and mac creation and verification via HMAC. For user 
+        authentication, I elected for password authentication for simplicity. After the transport layer had been established and
+        the user had been authenticated, a new channel is opened and a pseudoterminal running a shell is set up. Lastly, the local
+        terminal is placed into raw mode and key presses are forwarded to the host concurrently with reading and displaying content
+        sent by the host. This project originally started as a way to learn Rust but ended up becoming a lesson in internet protocols,
+        cybersecurity, terminal behavior, and concurrency.
+    </p>
     <h3>Cryptography Tool</h3>
     <p>
         &emsp;&emsp;When I began exploring cryptography I decided to implement a tool for encrypting and decrypting with several
