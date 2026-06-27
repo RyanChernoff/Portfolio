@@ -12,110 +12,187 @@
     <hr>
     <br>
     <p>
-        &emsp;&emsp;My name is Ryan Chernoff and I am a student at Carnegie Mellon University studying computer science. Ever since I can remember, I have been fascinated in understanding how things work. This has led me to take on a variety of different projects from several different domains in an attempt to gain a better understanding of them. Currently, I have been enthralled by the low-level processes that allow computers to function. This includes everything from the inner workings of a single processor to how virtual memory is shared by concurrent processes. I have found software engineering to be incredibly interesting as well. Creating intuitive and elegant front-end scripts as well as managing the transfer of data from between databases and servers has been particularly enjoyable to implement. I hope to continue my studies into these particular areas of interest and learn as much as I can about them and computer science as a whole.
+        &emsp;&emsp;My name is Ryan Chernoff and I am a student at Carnegie Mellon University studying computer science.
+        Ever since I can remember, I have been fascinated in understanding how things work. This has led me to take on a
+        variety of different projects from several different domains in an attempt to gain a better understanding of
+        them. Currently, I have been enthralled by the low-level processes that allow computers to function. This
+        includes everything from the inner workings of a single processor to how virtual memory is shared by concurrent
+        processes. I have found software engineering to be incredibly interesting as well. Creating intuitive and
+        elegant front-end scripts as well as managing the transfer of data from between databases and servers has been
+        particularly enjoyable to implement. I hope to continue my studies into these particular areas of interest and
+        learn as much as I can about them and computer science as a whole.
     </p>
     <h2>Projects</h2>
     <hr>
+    <h3>RAFT Protocol</h3>
+    <p>
+        &emsp;&emsp;To explore the complexities of fault-tolerant systems, I implemented a custom distributed consensus
+        engine based on the RAFT protocol using Go. The system orchestrates concurrent leader election and log
+        replication across an arbitrary cluster of nodes. The leader election mechanism utilizes randomized timeouts to
+        minimize split-vote conflicts, ensuring a majority quorum successfully designates a single authoritative leader.
+        For state synchronization, the log replication pipeline guarantees that all non-faulty nodes eventually converge
+        on an identical execution history. By strictly enforcing these global invariants, the architecture inherently
+        mitigates split-brain scenarios and remains fully resilient against temporary network partitions, independent
+        node failures, and transient network drops.
+    </p>
     <h3>Tiny Secure Shell Client</h3>
     <p>
-        &emsp;&emsp;In an attempt to learn Rust, I decided to develop a minimal implementation of an SSH client. Using the RFC
-        documentation for SSH 2.0 I first developed the transport layer by implementing key exchange via ECDH, host key validation 
-        via RSA, encryption and decryption via AES in counter mode, and mac creation and verification via HMAC. For user 
-        authentication, I elected for password authentication for simplicity. After the transport layer has been established and
-        the user has been authenticated, a new channel is opened and a pseudoterminal running a shell is set up. Lastly, the local
-        terminal is placed into raw mode and key presses are forwarded to the host concurrently with reading and displaying content
-        sent by the host. This project originally started as a way to learn Rust but ended up becoming a lesson in internet protocols,
+        &emsp;&emsp;In an attempt to learn Rust, I decided to develop a minimal implementation of an SSH client. Using
+        the RFC
+        documentation for SSH 2.0 I first developed the transport layer by implementing key exchange via ECDH, host key
+        validation
+        via RSA, encryption and decryption via AES in counter mode, and mac creation and verification via HMAC. For user
+        authentication, I elected for password authentication for simplicity. After the transport layer has been
+        established and
+        the user has been authenticated, a new channel is opened and a pseudoterminal running a shell is set up. Lastly,
+        the local
+        terminal is placed into raw mode and key presses are forwarded to the host concurrently with reading and
+        displaying content
+        sent by the host. This project originally started as a way to learn Rust but ended up becoming a lesson in
+        internet protocols,
         cybersecurity, terminal behavior, and concurrency.
     </p>
     <h3>Cryptography Tool</h3>
     <p>
-        &emsp;&emsp;When I began exploring cryptography I decided to implement a tool for encrypting and decrypting with several
-        different cryptographic algorithms so I could gain a better understanding of them. I started with simple ciphers such as
-        the caesar cypher and shift cypher. Then I began experimenting with different base changes such as binary, hex, base 32,
-        and base 64. Eventually, I created a generic base changing function that allowed for selection of a custom alphabet and
-        a custom number of bits for the base. Lastly, I implemented RSA encryption including public and private key generation.
-        Because of this project, I have gained a deep understanding of several common cryptographical techniques that will
+        &emsp;&emsp;When I began exploring cryptography I decided to implement a tool for encrypting and decrypting with
+        several
+        different cryptographic algorithms so I could gain a better understanding of them. I started with simple ciphers
+        such as
+        the caesar cypher and shift cypher. Then I began experimenting with different base changes such as binary, hex,
+        base 32,
+        and base 64. Eventually, I created a generic base changing function that allowed for selection of a custom
+        alphabet and
+        a custom number of bits for the base. Lastly, I implemented RSA encryption including public and private key
+        generation.
+        Because of this project, I have gained a deep understanding of several common cryptographical techniques that
+        will
         certainly help me in my future endeavors.
     </p>
     <h3>HTTP Proxy</h3>
     <p>
-        &emsp;&emsp;Studying how computers interact with each other over the internet inevitably led me to implement a simple
-        proxy server. The server accepted and forwarded HTTP requests to their destination and returned whatever response it
-        received back to the original user. During this process, I had to ensure that all header fields were forwarded properly
-        and in accordance with HTTP standards as well as handle badly formatted requests and return a useful error response. The
-        proxy was single threaded and could only handle one connection at a time, yet I gained a good understanding for the
+        &emsp;&emsp;Studying how computers interact with each other over the internet inevitably led me to implement a
+        simple
+        proxy server. The server accepted and forwarded HTTP requests to their destination and returned whatever
+        response it
+        received back to the original user. During this process, I had to ensure that all header fields were forwarded
+        properly
+        and in accordance with HTTP standards as well as handle badly formatted requests and return a useful error
+        response. The
+        proxy was single threaded and could only handle one connection at a time, yet I gained a good understanding for
+        the
         basic process computers use to communicate over the internet.
     </p>
     <h3>Tiny Shell</h3>
     <p>
-        &emsp;&emsp;Learning about how multi-process applications are managed, I created a tiny shell. The shell was capable of
-        running both foreground and background processes by utilizing fork and exec to spawn a new child. I also developed an
+        &emsp;&emsp;Learning about how multi-process applications are managed, I created a tiny shell. The shell was
+        capable of
+        running both foreground and background processes by utilizing fork and exec to spawn a new child. I also
+        developed an
         understanding of signals as the SIGCHLD handler was overridden so that the shell could reap all terminated child
-        processes. It could also handle converting background jobs to foreground jobs and vice versa as well as forwarding
-        SIGINT and SIGTSTP signals to the current foreground process. The shell also included syntax for redirecting the input
-        and output descriptors to specified files. Although it doesn't quite compare in utility with unix's actual shell,
-        working on this project taught me a lot about handling concurrency issues, managing multi-process applications, and
+        processes. It could also handle converting background jobs to foreground jobs and vice versa as well as
+        forwarding
+        SIGINT and SIGTSTP signals to the current foreground process. The shell also included syntax for redirecting the
+        input
+        and output descriptors to specified files. Although it doesn't quite compare in utility with unix's actual
+        shell,
+        working on this project taught me a lot about handling concurrency issues, managing multi-process applications,
+        and
         dealing with sending and receiving signals.
     </p>
     <h3>Dynamic Memory Allocator</h3>
     <p>
-        &emsp;&emsp;While learning how processes manage memory, I implement C's malloc, calloc, realloc, and free functions to
-        better understand how the heap is managed. My implementation used segregated free lists of varying block sizes to ensure
-        good throughput when finding free memory to allocate. It also used best fit (finding the smallest possible block) to
+        &emsp;&emsp;While learning how processes manage memory, I implement C's malloc, calloc, realloc, and free
+        functions to
+        better understand how the heap is managed. My implementation used segregated free lists of varying block sizes
+        to ensure
+        good throughput when finding free memory to allocate. It also used best fit (finding the smallest possible
+        block) to
         ensure good utilization of the heap. The design of the blocks took advantage of 0-length arrays in order to have
-        variable block sizes. Each block was a union of a free block type and an allocated block type where free blocks held
-        important information about its location in the free list (such as the address of the next block and the block size) and
-        allocated blocks only held size information. When a block is freed it gets combined with any surrounding free blocks and
-        added to the appropriate free list. Although my implementations are much simpler than their C library counterparts, I
+        variable block sizes. Each block was a union of a free block type and an allocated block type where free blocks
+        held
+        important information about its location in the free list (such as the address of the next block and the block
+        size) and
+        allocated blocks only held size information. When a block is freed it gets combined with any surrounding free
+        blocks and
+        added to the appropriate free list. Although my implementations are much simpler than their C library
+        counterparts, I
         learned a lot about how allocated memory is managed and how the heap is kept at an incredibly efficient size.
     </p>
     <h3>Virtual Cache Simulator</h3>
     <p>
         &emsp;&emsp;As part of my study of physical computer systems I learned about the various caches integral in
-        ensuring processes run in a reasonable number of cycles. With my knowledge, I implemented a virtual cache that could be
-        configured to emulate the functionality of any sized cache. The virtual cache could handle both load and save events at
-        any location in memory. It would also keep track of the number of cache misses, hits, and evictions that occured. The
-        variation of the cache I made utilized dirty bits to mark cache blocks that had been written to so that their value
-        could be updated in memory upon eviction. It also kept track of the number of dirty bits that had been evicted and the
-        number still in the cache. Implementing this simulator allowed me to gain a better understanding of how caches work
+        ensuring processes run in a reasonable number of cycles. With my knowledge, I implemented a virtual cache that
+        could be
+        configured to emulate the functionality of any sized cache. The virtual cache could handle both load and save
+        events at
+        any location in memory. It would also keep track of the number of cache misses, hits, and evictions that
+        occured. The
+        variation of the cache I made utilized dirty bits to mark cache blocks that had been written to so that their
+        value
+        could be updated in memory upon eviction. It also kept track of the number of dirty bits that had been evicted
+        and the
+        number still in the cache. Implementing this simulator allowed me to gain a better understanding of how caches
+        work
         and how important it is to utilize locality to avoid costly cache misses.
     </p>
     <h3>Singular Value Decomposition Calculator</h3>
     <p>
-        &emsp;&emsp;While studying linear algebra, I came across the usefulness of Singular Value Decomposition (SVD) for both
-        determining the principal components and pseudo-inverses of both real and complex matrices. To compute the SVD of a
-        matrix, you need to compute all the square root of the eigenvalues of it multiplied with its transpose. To compute these
-        eigenvalues I used the QR method which relies on deriving an orthonormal basis for the column space of a matrix. Then a
-        similar matrix is produced by reversing the order of Q and R and the process is repeated until convergence. From there,
-        the eigenvalues and their respective vectors can be extracted. This allows us to compute the SVD of the original matrix.
-        This project let me utilize all my linear algebra skills to implement an incredibly useful algorithm for deriving
+        &emsp;&emsp;While studying linear algebra, I came across the usefulness of Singular Value Decomposition (SVD)
+        for both
+        determining the principal components and pseudo-inverses of both real and complex matrices. To compute the SVD
+        of a
+        matrix, you need to compute all the square root of the eigenvalues of it multiplied with its transpose. To
+        compute these
+        eigenvalues I used the QR method which relies on deriving an orthonormal basis for the column space of a matrix.
+        Then a
+        similar matrix is produced by reversing the order of Q and R and the process is repeated until convergence. From
+        there,
+        the eigenvalues and their respective vectors can be extracted. This allows us to compute the SVD of the original
+        matrix.
+        This project let me utilize all my linear algebra skills to implement an incredibly useful algorithm for
+        deriving
         important properties of matrices.
     </p>
     <h3>N.E.A.T. Neural Network</h3>
     <p>
-        &emsp;&emsp;My exploration of Artificial Intelligence led me to explore different evolutionary algorithms for training
+        &emsp;&emsp;My exploration of Artificial Intelligence led me to explore different evolutionary algorithms for
+        training
         neural networks. After reading Stanley and Miikkulainen's paper on
-        <a href="https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf" target="_blank">Evolving Neural Networks through
+        <a href="https://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf" target="_blank">Evolving Neural Networks
+            through
             Augmenting Topologies</a>
-        and having just learnt C, I decided to implement the algorithm. Neural networks were represented using linked lists of
-        genes that specified the types of connections that the network had. These genes could then be efficiently combined and
-        mutated just as in the paper. The algorithm can then create generations of networks and selectively combine the most fit
-        ones until the threshold for success is reached. In order to prevent networks with different successful approaches from
-        interfering with each other, when two networks are too different from each other, they are classified is different
-        species and can't reproduce. This gives more complex topologies time to adapt before they are deemed unfit. This allowed
-        for efficient topological innovation and created multiple successful networks capable of solving complex problems (such
+        and having just learnt C, I decided to implement the algorithm. Neural networks were represented using linked
+        lists of
+        genes that specified the types of connections that the network had. These genes could then be efficiently
+        combined and
+        mutated just as in the paper. The algorithm can then create generations of networks and selectively combine the
+        most fit
+        ones until the threshold for success is reached. In order to prevent networks with different successful
+        approaches from
+        interfering with each other, when two networks are too different from each other, they are classified is
+        different
+        species and can't reproduce. This gives more complex topologies time to adapt before they are deemed unfit. This
+        allowed
+        for efficient topological innovation and created multiple successful networks capable of solving complex
+        problems (such
         as XOR computation and weight balancing) with high accuracy. In implementing this algorithm, I learned a lot
         about neural networks and the importance behind efficient topology.
     </p>
     <h3>Text Based Choose Your Own Adventure Game Engine</h3>
     <p>
         &emsp;&emsp;I began my exploration of file IO with the development of a Text Based Choose Your Own Adventure
-        Game Engine. In order to make writing stories as simple as possible, each part of the story was stored in a file which
-        the game engine would parse and display to the user. The file would also include what options the user had and what
-        files to open next when an option was selected. However, I wanted every part of the user interface to be customizable so
-        I added special variables that could be set within a file to update attributes like the background color, button color,
-        text color, and text speed. I also added special syntax so that custom variables can be made and set to arbitrary values
-        that can later be displayed as part of the UI. Although there are much better text based game engines out there, this
+        Game Engine. In order to make writing stories as simple as possible, each part of the story was stored in a file
+        which
+        the game engine would parse and display to the user. The file would also include what options the user had and
+        what
+        files to open next when an option was selected. However, I wanted every part of the user interface to be
+        customizable so
+        I added special variables that could be set within a file to update attributes like the background color, button
+        color,
+        text color, and text speed. I also added special syntax so that custom variables can be made and set to
+        arbitrary values
+        that can later be displayed as part of the UI. Although there are much better text based game engines out there,
+        this
         project ultimately taught me a lot about file IO and makes for a one of a kind storytelling experience.
     </p>
     <h2>Contacts</h2>
